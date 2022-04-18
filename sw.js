@@ -4,7 +4,7 @@ var VERSION = "version_001"
 var URLS = [
   `${GHPATH}/`,
   `${GHPATH}/index.html`,
-  `${GHPATH}/css/styles.css`,
+  `${GHPATH}/css/style.css`,
   `${GHPATH}/android-chrome-512x512.png`,
   `${GHPATH}/js/script.js`,
 ]
@@ -21,15 +21,6 @@ self.addEventListener("fetch", function (e) {
         console.log("File is not cached, fetching : " + e.request.url)
         return fetch(e.request)
       }
-    })
-  )
-})
-
-self.addEventListener("install", function (e) {
-  e.waitUntil(
-    caches.open(CACHE_NAME).then(function (cache) {
-      console.log("Installing cache : " + CACHE_NAME)
-      return cache.addAll(URLS)
     })
   )
 })
